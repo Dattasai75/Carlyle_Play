@@ -9,7 +9,6 @@
       await expect(page.locator("ul>li")).toContainText(['Loan Purpose','Occupancy','Credit Score','Property Type','Desired Loan Amount ($)']);
       await page.locator("//div[@id='input_15_2_chosen']").click();
       await expect(page.locator("ul>li")).toContainText(['- Select One -','Purchase','Pre-Approval','Refinance','Refinance (Cash-Out)'])
-
       await page.click("//div[@id='input_15_2_chosen']//a[@class='chosen-single']//div");
 });
 

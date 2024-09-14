@@ -27,12 +27,13 @@ test("verify the available buttons and functionality of About-Us page", async({p
     await expect(page.locator("(//h4[normalize-space()='Contact'])[1]")).toHaveText("Contact");
 
     //verify the available fields in the contact form
-    await expect(page.locator("ul>li")).toContainText(['First Name', 'Last Name', 'Email Address', 'Message']);
+    await expect(page.locator("ul>li")).toContainText(['First Name', 'Last Name', 'Email Address', 'Message', 'CAPTCHA']);
+    await expect(page.locator(`//label[text()="I'm not a robot"]`)).toHaveText("I'm not a robot");
     await page.locator("(//input[@class='large LoNotSensitive'])[1]").fill('Ramesh');
     await page.locator("(//input[@class='large LoNotSensitive'])[2]").fill('Cohan');
     await page.locator("(//input[@class='medium LoNotSensitive'])[1]").fill('abc@gmail.com');
     await page.locator("(//textarea[@class='textarea medium'])[1]").fill("Today is the day, please don't skip this 1-minute read. We're sorry to interrupt, but it's Friday, 13 September, and our fundraiser doesn't last long. We request you to reflect on the number of times you visited Wikipedia in the past year and if you're able to donate ₹ 25 to the Wikimedia Foundation. If everyone reading this gave ₹ 25, we'd reach our goal in a few hours.");
-    
+    await page.locator("")
     //filling the contact details
     // await page.locator("")
 

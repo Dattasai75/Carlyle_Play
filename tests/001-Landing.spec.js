@@ -99,22 +99,4 @@ test("Landing page", async({page})=>{
     
     // Refinanceverify the functionality of Refinance button
     await page.locator("(//a[normalize-space()='Refinance'])[1]").click();
-    await expect(page.locator("")).toHaveText();
-    await expect(page.locator("")).toHaveText();
-    await expect(page.locator("")).toHaveText();
-    await expect(page.locator("")).toHaveText();
-    await expect(page.locator("")).toHaveText();
-    await expect(page.locator("")).toHaveText();
-    await expect(page.locator("")).toHaveText();
-    await expect(page.locator("")).toHaveText();
-    await expect(page.locator("")).toHaveText();
-    await expect(page.locator("")).toHaveText();
-    await expect(page.locator("")).toHaveText();
-    await expect(page.locator("")).toHaveText();
-    await expect(page.locator("")).toHaveText();
-    await expect(page.locator("")).toHaveText();
-    await expect(page.locator("")).toHaveText();
-    await expect(page.locator("")).toHaveText();
-    await expect(page.locator("")).toHaveText();
-    await expect(page.locator("")).toHaveText();
 });

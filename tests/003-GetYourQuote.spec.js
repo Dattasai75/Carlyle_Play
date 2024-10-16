@@ -1,6 +1,6 @@
  const {test,expect}=require('@playwright/test');
 
- test.only('get your quote',async ({page})=>{
+ test('get your quote',async ({page})=>{
       await page.goto('https://www.carlylefinancial.com/');
       await expect(page).toHaveURL('https://www.carlylefinancial.com/');
       await page.click("//a[normalize-space()='Get your quote']");

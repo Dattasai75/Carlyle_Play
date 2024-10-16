@@ -1,7 +1,7 @@
 import {test, expect} from "@playwright/test";
 
-test("Landing page", async({page})=>{
-    await page.goto("https://www.carlylefinancial.com/");
+test.only("Landing page", async({page})=>{
+    await page.goto(process.env.BASE_URL_1);
     await page.waitForTimeout(5000);
     //verify the visibility of the logo
     await expect(page.locator("//a[@aria-label='Carlyle Financial Home']")).toBeVisible();

@@ -1,7 +1,7 @@
 import {test, expect} from "@playwright/test";
 
 test("verify the available buttons and functionality of About-Us page", async({page})=>{
-    await page.goto("https://www.carlylefinancial.com/");
+    await page.goto(process.env.BASE_URL_1);
     await page.waitForTimeout(5000);
     //verify the functionality of about us button
     await page.locator("(//a[text()='About Us'])[1]").click();

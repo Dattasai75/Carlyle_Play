@@ -1,23 +1,11 @@
 {
-  "name": "carlyle",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {},
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@playwright/test": "^1.47.0",
-    "@types/node": "^22.5.4"
-  },
-  "directories": {
-    "test": "tests"
-  },
   "dependencies": {
     "dotenv": "^16.4.5",
-    "playwright": "^1.47.1",
-    "playwright-core": "^1.47.0",
-    "undici-types": "^6.19.8"
+    "playwright": "^1.48.1"
   },
-  "description": ""
+  "devDependencies": {
+    "@playwright/test": "^1.48.1",
+    "@types/node": "^22.7.6"
+  },
+  "scripts": {}
 }

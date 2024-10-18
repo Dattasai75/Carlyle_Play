@@ -4,13 +4,14 @@ import exp from "constants";
 import { openAsBlob } from "fs";
 
 test("verify Jumbo Mortgages page", async({page})=>{
-    await page.goto("https://www.carlylefinancial.com/");
+    await page.goto(process.env.BASE_URL_1);
+    await page.waitForTimeout(5000);
     //await expect(page.url()).toBe("https://www.carlylefinancial.com/");
     await expect(page.locator("//li[@id='menu-item-21044']//a[contains(text(),'Services')]")).hover();
     //await expect(page.locator("ul>li")).toContainText(['Jumbo Mortgages', 'Buying A Home', 'Mortgage Refinance', 'Investment Properties']);
     //await expect(page.locator("ul>li")).toContainText(['Our Calculators', 'Amortization', 'Mortgage', 'Loan Comparison', 'Refinance']);
     await page.locator("//li[@id='menu-item-2560']//a[normalize-space()='Jumbo Mortgages']").click();
-    await expect(page.url()).toBe("https://www.carlylefinancial.com/jumbo-mortgages/");
+    await expect(page.url()).toBe(`${process.env.BASE_URL_1}/jumbo-mortgages/`);
     await expect(page.locator("//h1[normalize-space()='Jumbo Mortgages']")).toHaveText("Jumbo Mortgages");
     await expect(page.locator("//h3[normalize-space()='Experience the Service You Deserve']")).toBeVisible();
     await expect(page.locator("//h2[normalize-space()='Loan Details']")).toBeVisible();
@@ -42,7 +43,7 @@ test("verify Jumbo Mortgages page", async({page})=>{
     await expect(page.locator("//strong[normalize-space()='What Do You Do Next?']")).toHaveText("What Do You Do Next?");
     //await expect(page.locator("//div[@class='form-footer']")).toContainText(['No Obligation','No Obligation','No Obligation']);
     await page.locator("//span[normalize-space()='help employees using RSU income']").click();
-    await expect(page.locator("https://www.carlylefinancial.com/blog/rsu-mortgage-from-use-restricted-stock-units-buy-home/"));
+    await expect(page.locator(`${process.env.BASE_URL_1}/blog/rsu-mortgage-from-use-restricted-stock-units-buy-home/`));
     await expect(page.locator("//h1[normalize-space()='Do RSUs Count As Income For a Home Loan in 2024?']")).toHaveText("Do RSUs Count As Income For a Home Loan in 2024?");
     await expect(page.locator("(//h2[@class='simpletoc-title'][normalize-space()='Table of Contents'])[1]")).toHaveText("Table of Contents");
     await expect(page.locator("//h2[@id='aioseo-what-are-restricted-stock-units']")).toHaveText("What are Restricted Stock Units?");
@@ -58,9 +59,9 @@ test("verify Jumbo Mortgages page", async({page})=>{
     await page.locator("//a[normalize-space()='About']").click();
     await expect(page.locator("//div[@class='tabs-content']")).toBeVisible();
     await page.goBack();
-    await expect(page.url()).toBe("https://www.carlylefinancial.com/jumbo-mortgages/");
+    await expect(page.url()).toBe(`${process.env.BASE_URL_1}/jumbo-mortgages/`);
     await page.locator("//a[contains(text(),'get in touch with one of our mortgage experts toda')]").click();
-    await expect(page.url()).toBe("https://www.carlylefinancial.com/get-started/");
+    await expect(page.url()).toBe(`${process.env.BASE_URL_1}/get-started/`);
     await expect(page.locator("//h2[normalize-space()='My Loan Details']")).toHaveText('My Loan Details');
     // await expect(page.locator("ul>li")).toContainText(['Loan Purpose','Occupancy','Credit Score','Property Type','Desired Loan Amount ($)']);
     // await page.locator("//div[@id='input_15_2_chosen']").click();

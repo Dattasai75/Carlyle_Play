@@ -1,7 +1,8 @@
 import {test,expect} from "@playwright/test";
 
 test("Verify the functionality of Motagage Refinance ", async({page})=>{
-    await page.goto("https://www.carlylefinancial.com/");
+    await page.goto(process.env.BASE_URL_1);
+    await page.waitForTimeout(5000);
     await expect(page.locator("//li[@id='menu-item-21044']//a[contains(text(),'Services')]")).hover();
     await page.locator("(//a[normalize-space()='Mortgage Refinance'])[1]").click();
     await page.waitForTimeout(2000);
@@ -30,8 +31,7 @@ test("Verify the functionality of Motagage Refinance ", async({page})=>{
     await page.locator("(//a[contains(text(),'get in touch with one of our mortgage experts toda')])[1]").click();
     await expect(page.locator("(//h2[normalize-space()='One Size Does Not Fit All.'])[1]")).toHaveText("One Size Does Not Fit All.");
     await page.goBack();
-    await expect(page.locator("")).toHaveText();
-    await expect(page.locator("")).toHaveText();
-    await expect(page.locator("")).toHaveText();
-
+    // await expect(page.locator("")).toHaveText();
+    // await expect(page.locator("")).toHaveText();
+    // await expect(page.locator("")).toHaveText();
 });

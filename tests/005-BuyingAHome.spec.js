@@ -1,11 +1,11 @@
 import {test,expect} from "@playwright/test";
 
 test("Buying A home", async({page})=>{
-    await page.goto("https://www.carlylefinancial.com/");
+    await page.goto(process.env.BASE_URL_1);
+    await page.waitForTimeout(5000);
     await expect(page.locator("//li[@id='menu-item-21044']//a[contains(text(),'Services')]")).hover();
-
     await page.locator("//li[@id='menu-item-2558']//a[normalize-space()='Buying A Home']").click();
-    await expect(page.url()).toBe("https://www.carlylefinancial.com/our-services/purchase/");
+    await expect(page.url()).toBe(`${process.env.BASE_URL_1}/our-services/purchase/`);
     await expect(page.locator("//h1[normalize-space()='Buying A Home']")).toHaveText("Buying A Home"  );
     await expect(page.locator("//strong[contains(text(),'The purchase of your perfect home – whether a loft')]")).toHaveText("The purchase of your perfect home – whether a loft in SoMa or a beachside bungalow in Venice – is an important decision in your life.");
     await expect(page.locator("//strong[normalize-space()='We never lose sight of that.']")).toHaveText("We never lose sight of that.");

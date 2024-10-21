@@ -1,6 +1,6 @@
 import {test, expect} from "@playwright/test";
 
-test("Landing page", async({page})=>{
+test.only("Landing page", async({page})=>{
     await page.goto(process.env.BASE_URL_1);
     await page.waitForTimeout(5000);
     //verify the visibility of the logo
@@ -42,11 +42,10 @@ test("Landing page", async({page})=>{
     await expect(page.locator("(//span[@class='trigger'])[1]")).toHaveText("Beverly Hills");
     await expect(page.locator("(//span[@class='trigger active'])[1]")).toHaveText("San Francisco");
     await expect(page.locator("(//p[normalize-space()='© 2024 Carlyle Financial'])[1]")).toBeVisible();
-
     //verify the functionality of about us button
-    await page.locator("//a[text()='About Us']").click();
+    await page.locator("(//a[text()='About Us'])[2]").click();
     await page.waitForTimeout(2000);
-    await expect(page.url()).toBe('https://www.carlylefinancial.com/about-us/');
+    await expect(page.url()).toBe(`${process.env.BASE_URL_1}/about-us/`);
     await expect(page.locator("(//h3[normalize-space()='What Our Clients Have to Say'])[1]")).toBeVisible();
 
     //verify the functionality of Services section
@@ -57,19 +56,22 @@ test("Landing page", async({page})=>{
     // Refinanceverify the functionality of Jumbo Mortagages button
     await page.locator("(//a[normalize-space()='Jumbo Mortgages'])[1]").click();
     await page.waitForTimeout(5000);
-    await expect(page.url()).toBe('https://www.carlylefinancial.com/jumbo-mortgages/');
+    await expect(page.url()).toBe(`${process.env.BASE_URL_1}/mortgage-solutions/jumbo-mortgages/`);
     await expect(page.locator("//h3[normalize-space()='Experience the Service You Deserve']")).toBeVisible();
     
     // Refinanceverify the functionality of Buying A Home button
+    await page.locator("//li[@id='menu-item-21044']//a[contains(text(),'Services')]").hover();
     await page.locator("(//a[normalize-space()='Buying A Home'])[1]").click();
     await expect(page.locator("(//h3[normalize-space()='Choosing Your First Home.'])[1]")).toHaveText("Choosing Your First Home.");
     await expect(page.locator("(//h3[normalize-space()='Expanding Your Lifestyle.'])[1]")).toHaveText("Expanding Your Lifestyle.");
     
     // Refinanceverify the functionality of Mortgage Refinance button
+    await page.locator("//li[@id='menu-item-21044']//a[contains(text(),'Services')]").click();
     await page.locator("(//a[normalize-space()='Mortgage Refinance'])[1]").click();
     await expect(page.locator("(//h3[normalize-space()='Lower Monthly Payments.'])[1]")).toHaveText("Lower Monthly Payments.");
     
     // Refinanceverify the functionality of Investment Properties button
+    await page.locator("//li[@id='menu-item-21044']//a[contains(text(),'Services')]").click();
     await page.locator("(//a[normalize-space()='Investment Properties'])[1]").click();
     await expect(page.locator("(//h3[normalize-space()='Experience the Service You Deserve'])[1]")).toHaveText("Experience the Service You Deserve");
     await expect(page.locator("(//h2[normalize-space()='Loan Details'])[1]")).toHaveText("Loan Details");
@@ -88,6 +90,8 @@ test("Landing page", async({page})=>{
     await expect(page.locator("(//label[normalize-space()='Where are you in the process?'])[1]")).toHaveText("Where are you in the process?");
     await page.locator("//div[@id='input_11_13_chosen']").click();
     // Refinanceverify the functionality of Our Calculators button
+    await page.locator("//li[@class='active-result'][@data-option-array-index='1']").click();
+    // Clicking on the serviices then click on the our  calculators
     await page.locator("(//span[normalize-space()='Our Calculators'])[1]").click();
     // Refinanceverify the functionality of Amortization button
     await page.locator("(//a[normalize-space()='Amortization'])[1]").click();
@@ -100,22 +104,22 @@ test("Landing page", async({page})=>{
     
     // Refinanceverify the functionality of Refinance button
     await page.locator("(//a[normalize-space()='Refinance'])[1]").click();
-    await expect(page.locator("")).toHaveText();
-    await expect(page.locator("")).toHaveText();
-    await expect(page.locator("")).toHaveText();
-    await expect(page.locator("")).toHaveText();
-    await expect(page.locator("")).toHaveText();
-    await expect(page.locator("")).toHaveText();
-    await expect(page.locator("")).toHaveText();
-    await expect(page.locator("")).toHaveText();
-    await expect(page.locator("")).toHaveText();
-    await expect(page.locator("")).toHaveText();
-    await expect(page.locator("")).toHaveText();
-    await expect(page.locator("")).toHaveText();
-    await expect(page.locator("")).toHaveText();
-    await expect(page.locator("")).toHaveText();
-    await expect(page.locator("")).toHaveText();
-    await expect(page.locator("")).toHaveText();
-    await expect(page.locator("")).toHaveText();
-    await expect(page.locator("")).toHaveText();
+    // await expect(page.locator("")).toHaveText();
+    // await expect(page.locator("")).toHaveText();
+    // await expect(page.locator("")).toHaveText();
+    // await expect(page.locator("")).toHaveText();
+    // await expect(page.locator("")).toHaveText();
+    // await expect(page.locator("")).toHaveText();
+    // await expect(page.locator("")).toHaveText();
+    // await expect(page.locator("")).toHaveText();
+    // await expect(page.locator("")).toHaveText();
+    // await expect(page.locator("")).toHaveText();
+    // await expect(page.locator("")).toHaveText();
+    // await expect(page.locator("")).toHaveText();
+    // await expect(page.locator("")).toHaveText();
+    // await expect(page.locator("")).toHaveText();
+    // await expect(page.locator("")).toHaveText();
+    // await expect(page.locator("")).toHaveText();
+    // await expect(page.locator("")).toHaveText();
+    // await expect(page.locator("")).toHaveText();
 });

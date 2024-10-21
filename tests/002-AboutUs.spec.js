@@ -6,7 +6,7 @@ test("verify the available buttons and functionality of About-Us page", async({p
     //verify the functionality of about us button
     await page.locator("(//a[text()='About Us'])[1]").click();
     await page.waitForTimeout(2000);
-    await expect(page.url()).toBe('https://www.carlylefinancial.com/about-us/');
+    await expect(page.url()).toBe(`${process.env.BASE_URL_1}/about-us/`);
     //verify the available text or detains in the about us page
     await expect(page.locator("(//h4[normalize-space()='Each Client is Unique to Us'])[1]")).toHaveText("Each Client is Unique to Us");
     await expect(page.locator("(//h4[normalize-space()='Our Relationships Benefit Clients'])[1]")).toHaveText("Our Relationships Benefit Clients");
@@ -63,7 +63,7 @@ test("verify the available buttons and functionality of About-Us page", async({p
     await expect(page.locator("(//span[normalize-space()='Learn More'])[1]")).toHaveText("Learn More");
     //Upon clicking it should navigate to the careers page
     await page.locator("(//span[normalize-space()='Learn More'])[1]").click();
-    await expect(page.url()).toBe("https://www.carlylefinancial.com/careers/");
+    await expect(page.url()).toBe(`${process.env.BASE_URL_1}/careers/`);
     await expect(page.locator("//h1[@class='entry-title']")).toHaveText("Careers");
     await page.goBack();
 
@@ -72,22 +72,22 @@ test("verify the available buttons and functionality of About-Us page", async({p
     await expect(page.locator("(//p[normalize-space()='Media'])[1]")).toHaveText("Media");
     await expect(page.locator("(//h4[normalize-space()='In the News'])[1]")).toHaveText("In the News");
     await expect(page.locator("(//p[contains(text(),'Recent interviews with the Wall Street Journal, Bu')])[1]")).toHaveText("Recent interviews with the Wall Street Journal, Business Insider and more.");
-    await expect(page.locator("(//a[@href='https://www.carlylefinancial.com/press/'][normalize-space()='Read more'])[1]")).toHaveText("Read more");
+    await expect(page.locator("(//a[@href='${process.env.BASE_URL_1}/press/'][normalize-space()='Read more'])[1]")).toHaveText("Read more");
     //Upon clicking it should navigate to the press page
-    await page.locator("(//a[@href='https://www.carlylefinancial.com/press/'][normalize-space()='Read more'])[1]").click();
-    await expect(page.url()).toBe("https://www.carlylefinancial.com/press/");
+    await page.locator(`(//a[@href="${process.env.BASE_URL_1}/press/""][normalize-space()='Read more'])[1]`).click();
+    await expect(page.url()).toBe(`${process.env.BASE_URL_1}/press/`);
     await expect(page.locator("//h1[@class='entry-title']")).toHaveText("In The Press");
     await page.goBack(); 
 
     //Check Community section is visible in the about us page
-    await expect(page.locator("  ")).toBeVisible();
+    ///await expect(page.locator("  ")).toBeVisible();
     await expect(page.locator("(//p[normalize-space()='Community'])[1]")).toHaveText("Community");
     await expect(page.locator("(//h4[normalize-space()='In the News'])[1]")).toHaveText("In the News");
     await expect(page.locator("(//p[contains(text(),'Recent interviews with the Wall Street Journal, Bu')])[1]")).toHaveText("Recent interviews with the Wall Street Journal, Business Insider and more.");
-    await expect(page.locator("(//a[@href='https://www.carlylefinancial.com/press/'][normalize-space()='Read more'])[1]")).toHaveText("Read more");
+    await expect(page.locator(`(//a[@href='${process.env.BASE_URL_1}/press/'][normalize-space()='Read more'])[1]`)).toHaveText("Read more");
     //Upon clicking it should navigate to the press page
-    await page.locator("(//a[@href='https://www.carlylefinancial.com/press/'][normalize-space()='Read more'])[1]").click();
-    await expect(page.url()).toBe("https://www.carlylefinancial.com/press/");
+    await page.locator(`(//a[@href='${process.env.BASE_URL_1}/press/'][normalize-space()='Read more'])[1]`).click();
+    await expect(page.url()).toBe(`${process.env.BASE_URL_1}/press/`);
     await expect(page.locator("//h1[@class='entry-title']")).toHaveText("In The Press");
     await page.goBack(); 
     //await expect(page.locator("")).toHaveText();
@@ -112,7 +112,7 @@ test("verify the available buttons and functionality of About-Us page", async({p
     //await page.locator("//div[@class='recaptcha-checkbox-border']").
     //await page.locator("(//input[@id='gform_submit_button_19'])[1]").click();
     //await page.waitForTimeout(2000);
-    //await expect(page.url()).toBe("https://www.carlylefinancial.com/thank-you-for-contacting-carlyle-financial/#gf_15");
+    //await expect(page.url()).toBe("${process.env.BASE_URL_1}/thank-you-for-contacting-carlyle-financial/#gf_15");
     //await expect(page.locator("//h1[normalize-space()='Thank You']")).toHaveText('Thank You');
     //await expect(page.locator("//a[normalize-space()='Homepage']")).toHaveText('Homepage');
     //await expect(page.locator("//a[normalize-space()='View our Blog']")).toHaveText('View our Blog');

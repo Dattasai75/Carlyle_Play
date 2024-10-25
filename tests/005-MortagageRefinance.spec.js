@@ -3,7 +3,8 @@ import {test,expect} from "@playwright/test";
 test("Verify the functionality of Motagage Refinance ", async({page})=>{
     await page.goto(process.env.BASE_URL_1);
     await page.waitForTimeout(5000);
-    await expect(page.locator("//li[@id='menu-item-21044']//a[contains(text(),'Services')]")).hover();
+    await expect(page.locator("//li[@id='menu-item-21044']//a[contains(text(),'Services')]")).toBeVisible();
+    await page.locator("//li[@id='menu-item-21044']//a[contains(text(),'Services')]").click();
     await page.locator("(//a[normalize-space()='Mortgage Refinance'])[1]").click();
     await page.waitForTimeout(2000);
     await expect(page.locator("//div[@class='label-outer']")).toHaveText("Mortgage Refinance");

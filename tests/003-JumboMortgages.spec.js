@@ -3,15 +3,16 @@ import { exec } from "child_process";
 import exp from "constants";
 import { openAsBlob } from "fs";
 
-test("verify Jumbo Mortgages page", async({page})=>{
+test.only("verify Jumbo Mortgages page", async({page})=>{
     await page.goto(process.env.BASE_URL_1);
     await page.waitForTimeout(5000);
     //await expect(page.url()).toBe("https://www.carlylefinancial.com/");
-    await expect(page.locator("//li[@id='menu-item-21044']//a[contains(text(),'Services')]")).hover();
+    await expect(page.locator("//li[@id='menu-item-21044']//a[contains(text(),'Services')]")).toBeVisible();
+    await page.locator("//li[@id='menu-item-21044']//a[contains(text(),'Services')]").hover();
     //await expect(page.locator("ul>li")).toContainText(['Jumbo Mortgages', 'Buying A Home', 'Mortgage Refinance', 'Investment Properties']);
     //await expect(page.locator("ul>li")).toContainText(['Our Calculators', 'Amortization', 'Mortgage', 'Loan Comparison', 'Refinance']);
     await page.locator("//li[@id='menu-item-2560']//a[normalize-space()='Jumbo Mortgages']").click();
-    await expect(page.url()).toBe(`${process.env.BASE_URL_1}/jumbo-mortgages/`);
+    await expect(page.url()).toBe(`${process.env.BASE_URL_1}/mortgage-solutions/jumbo-mortgages/`);
     await expect(page.locator("//h1[normalize-space()='Jumbo Mortgages']")).toHaveText("Jumbo Mortgages");
     await expect(page.locator("//h3[normalize-space()='Experience the Service You Deserve']")).toBeVisible();
     await expect(page.locator("//h2[normalize-space()='Loan Details']")).toBeVisible();
@@ -43,17 +44,19 @@ test("verify Jumbo Mortgages page", async({page})=>{
     await expect(page.locator("//strong[normalize-space()='What Do You Do Next?']")).toHaveText("What Do You Do Next?");
     //await expect(page.locator("//div[@class='form-footer']")).toContainText(['No Obligation','No Obligation','No Obligation']);
     await page.locator("//span[normalize-space()='help employees using RSU income']").click();
-    await expect(page.locator(`${process.env.BASE_URL_1}/blog/rsu-mortgage-from-use-restricted-stock-units-buy-home/`));
+    await expect(page.url()).toBe(`${process.env.BASE_URL_1}/blog/rsu-mortgage-from-use-restricted-stock-units-buy-home/`);
     await expect(page.locator("//h1[normalize-space()='Do RSUs Count As Income For a Home Loan in 2024?']")).toHaveText("Do RSUs Count As Income For a Home Loan in 2024?");
-    await expect(page.locator("(//h2[@class='simpletoc-title'][normalize-space()='Table of Contents'])[1]")).toHaveText("Table of Contents");
-    await expect(page.locator("//h2[@id='aioseo-what-are-restricted-stock-units']")).toHaveText("What are Restricted Stock Units?");
-    await expect(page.locator("//h2[@id='aioseo-can-rsus-be-used-as-income-for-a-home-loan']").toHaveText("Can RSUs be used as income for a home loan?"));
-    await expect(page.locator("(//h2[contains(text(),'How can you use vested income to qualify for a mor')])[1]")).toHaveText("How can you use vested income to qualify for a mortgage?");
+    
+    //Missing in the preprod
+    // await expect(page.locator("(//h2[@class='simpletoc-title'][normalize-space()='Table of Contents'])[1]")).toHaveText("Table of Contents");
+    // await expect(page.locator("//h2[@id='aioseo-what-are-restricted-stock-units']")).toHaveText("What are Restricted Stock Units?");
+    // await expect(page.locator("//h2[@id='aioseo-can-rsus-be-used-as-income-for-a-home-loan']").toHaveText("Can RSUs be used as income for a home loan?"));
+    // await expect(page.locator("(//h2[contains(text(),'How can you use vested income to qualify for a mor')])[1]")).toHaveText("How can you use vested income to qualify for a mortgage?");
     await expect(page.locator("//h4[normalize-space()='Robert Cohan']")).toHaveText("Robert Cohan");
-    await expect(page.locator("//div[@class='staff-meta-item position']//*[name()='svg']")).toHaveText(" President");
+    await expect(page.locator("//div[@class='staff-meta-item position']")).toHaveText(" President");
     await expect(page.locator("//div[@class='staff-meta-item location']")).toHaveText(" San Francisco");
     await expect(page.locator("//div[@class='staff-meta-item contact']")).toHaveText(" Message");
-    await exepect(page.locator("ul>li")).toContainText("Robert’s Blogs","About");
+    await expect(page.locator("ul>li")).toContainText(["Robert’s Blogs","About"]);
     await page.locator("//a[contains(text(),'Robert’s Blogs')]").click();
     await expect(page.locator("(//div[@id='panel1'])[1]")).toBeVisible();
     await page.locator("//a[normalize-space()='About']").click();

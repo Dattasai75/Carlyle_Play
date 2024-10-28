@@ -5,7 +5,7 @@ const { loadEnvFile } = require('process');
       await page.goto(process.env.BASE_URL_1);
       await page.waitForTimeout(5000);
       await expect(page).toHaveURL(process.env.BASE_URL_1);
-      await page.click("//a[normalize-space()='Get your quote']");
+      await page.locator("(//a[normalize-space()='Get Your Quote'])[1]").click();
       await page.waitForTimeout(5000);
       await expect(page.url()).toBe(`${process.env.BASE_URL_1}/get-started/`);
       await expect(page.locator("//h2[normalize-space()='My Loan Details']")).toHaveText('My Loan Details');

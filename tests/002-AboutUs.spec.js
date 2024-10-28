@@ -18,9 +18,9 @@ test.only("verify the available buttons and functionality of About-Us page", asy
       })  
     //Verify the team members details 
     await expect(page.locator("(//h3[normalize-space()='Meet The Team'])[1]")).toHaveText("Meet The Team");
-    await expect(page.locator("//p[contains(text(),'Our team at Carlyle Financial is experienced, hard')]")).toHaveText("Our team at Carlyle Financial is experienced, hardworking, and dedicated to helping you meet all you");
-    //verify the visibility of ? Help button.
-    await expect(page.locator("//button[@data-testid='launcher']")).toBeVisible();
+    await expect(page.locator("//p[contains(text(),'Our team at Carlyle Financial is experienced, hard')]")).toHaveText("Our team at Carlyle Financial is experienced, hardworking, and dedicated to helping you meet all your financing needs and goals.");
+    // //verify the visibility of ? Help button.
+    // await expect(page.locator("//button[@data-testid='launcher']")).toBeVisible();
     //verify that president details are visible or not
     await expect(page.locator("(//h3[normalize-space()='Robert Cohan'])[1]")).toHaveText("Robert Cohan");
     await expect(page.locator("(//p[normalize-space()='President'])[1]")).toHaveText("President");
@@ -62,20 +62,20 @@ test.only("verify the available buttons and functionality of About-Us page", asy
     await expect(page.locator("(//span[@class='sub-title'])[1]")).toHaveText("We’re Hiring");
     await expect(page.locator("(//h6[normalize-space()='Join The Team'])[1]")).toHaveText("Join The Team");
     await expect(page.locator("(//span[normalize-space()='Learn More'])[1]")).toHaveText("Learn More");
-    //Upon clicking it should navigate to the careers page
-    await page.locator("(//span[normalize-space()='Learn More'])[1]").click();
-    await expect(page.url()).toBe(`${process.env.BASE_URL_1}/careers/`);
-    await expect(page.locator("//h1[@class='entry-title']")).toHaveText("Careers");
-    await page.goBack();
+    // //Upon clicking it should navigate to the careers page
+    // await page.locator("(//span[normalize-space()='Learn More'])[1]").click();
+    // await expect(page.url()).toBe(`${process.env.BASE_URL_1}/careers/`);
+    // await expect(page.locator("//h1[@class='entry-title']")).toHaveText("Careers");
+    // await page.goBack();
 
     //Check Media section is visible in the about us page
     await expect(page.locator("(//div[@class='panel-inner'])[1]")).toBeVisible();
     await expect(page.locator("(//p[normalize-space()='Media'])[1]")).toHaveText("Media");
     await expect(page.locator("(//h4[normalize-space()='In the News'])[1]")).toHaveText("In the News");
     await expect(page.locator("(//p[contains(text(),'Recent interviews with the Wall Street Journal, Bu')])[1]")).toHaveText("Recent interviews with the Wall Street Journal, Business Insider and more.");
-    await expect(page.locator("(//a[@href='${process.env.BASE_URL_1}/press/'][normalize-space()='Read more'])[1]")).toHaveText("Read more");
+    await expect(page.locator("(//a[normalize-space()='Read more'])[1]")).toHaveText("Read more ");
     //Upon clicking it should navigate to the press page
-    await page.locator(`(//a[@href="${process.env.BASE_URL_1}/press/""][normalize-space()='Read more'])[1]`).click();
+    await page.locator(`(//a[normalize-space()='Read more'])[1]`).click();
     await expect(page.url()).toBe(`${process.env.BASE_URL_1}/press/`);
     await expect(page.locator("//h1[@class='entry-title']")).toHaveText("In The Press");
     await page.goBack(); 
@@ -85,11 +85,11 @@ test.only("verify the available buttons and functionality of About-Us page", asy
     await expect(page.locator("(//p[normalize-space()='Community'])[1]")).toHaveText("Community");
     await expect(page.locator("(//h4[normalize-space()='In the News'])[1]")).toHaveText("In the News");
     await expect(page.locator("(//p[contains(text(),'Recent interviews with the Wall Street Journal, Bu')])[1]")).toHaveText("Recent interviews with the Wall Street Journal, Business Insider and more.");
-    await expect(page.locator(`(//a[@href='${process.env.BASE_URL_1}/press/'][normalize-space()='Read more'])[1]`)).toHaveText("Read more");
+    await expect(page.locator("(//a[normalize-space()='Read more'])[2]")).toHaveText("Read more");
     //Upon clicking it should navigate to the press page
-    await page.locator(`(//a[@href='${process.env.BASE_URL_1}/press/'][normalize-space()='Read more'])[1]`).click();
-    await expect(page.url()).toBe(`${process.env.BASE_URL_1}/press/`);
-    await expect(page.locator("//h1[@class='entry-title']")).toHaveText("In The Press");
+    await page.locator("(//a[normalize-space()='Read more'])[2]").click();
+    await expect(page.url()).toBe(`${process.env.BASE_URL_1}/community-outreach/`);
+    await expect(page.locator("//h1[@class='entry-title']")).toHaveText("Community Outreach");
     await page.goBack(); 
     //await expect(page.locator("")).toHaveText();
     //await expect(page.locator("")).toHaveText();

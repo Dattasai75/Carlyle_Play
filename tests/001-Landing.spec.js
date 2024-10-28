@@ -1,6 +1,6 @@
 import {test, expect} from "@playwright/test";
 
-test.only("Landing page", async({page})=>{
+test("Landing page", async({page})=>{
     await page.goto(process.env.BASE_URL_1);
     await page.waitForTimeout(5000);
     //verify the visibility of the logo

@@ -1,6 +1,7 @@
 import {test, expect} from "@playwright/test";
 
-test("verify the available buttons and functionality of About-Us page", async({page})=>{
+test.only("verify the available buttons and functionality of About-Us page", async({page})=>{
+    await page.pause();
     await page.goto(process.env.BASE_URL_1);
     await page.waitForTimeout(5000);
     //verify the functionality of about us button

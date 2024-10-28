@@ -11,7 +11,7 @@ test("verify Jumbo Mortgages page", async({page})=>{
     //await expect(page.locator("ul>li")).toContainText(['Jumbo Mortgages', 'Buying A Home', 'Mortgage Refinance', 'Investment Properties']);
     //await expect(page.locator("ul>li")).toContainText(['Our Calculators', 'Amortization', 'Mortgage', 'Loan Comparison', 'Refinance']);
     await page.locator("//li[@id='menu-item-2560']//a[normalize-space()='Jumbo Mortgages']").click();
-    await expect(page.url()).toBe(`${process.env.BASE_URL_1}/jumbo-mortgages/`);
+    await expect(page.url()).toBe( );
     await expect(page.locator("//h1[normalize-space()='Jumbo Mortgages']")).toHaveText("Jumbo Mortgages");
     await expect(page.locator("//h3[normalize-space()='Experience the Service You Deserve']")).toBeVisible();
     await expect(page.locator("//h2[normalize-space()='Loan Details']")).toBeVisible();

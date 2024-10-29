@@ -7,7 +7,7 @@ test("verify Jumbo Mortgages page", async({page})=>{
     await page.goto(process.env.BASE_URL_1);
     await page.waitForTimeout(5000);
     //await expect(page.url()).toBe("https://www.carlylefinancial.com/");
-    await expect(page.locator("//li[@id='menu-item-21044']//a[contains(text(),'Services')]")).hover();
+    await page.locator("//li[@id='menu-item-21044']//a[contains(text(),'Services')]").click();
     //await expect(page.locator("ul>li")).toContainText(['Jumbo Mortgages', 'Buying A Home', 'Mortgage Refinance', 'Investment Properties']);
     //await expect(page.locator("ul>li")).toContainText(['Our Calculators', 'Amortization', 'Mortgage', 'Loan Comparison', 'Refinance']);
     await page.locator("//li[@id='menu-item-2560']//a[normalize-space()='Jumbo Mortgages']").click();

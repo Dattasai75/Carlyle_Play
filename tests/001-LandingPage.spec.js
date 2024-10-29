@@ -13,7 +13,7 @@ test("Landing page", async({page})=>{
     //verify the get your quote button is visible to the user
     await expect(page.locator("(//a[text()='Get Your Quote'])[1]")).toHaveText("Get Your Quote");
     await expect(page.locator("//strong[text()='Call us:']")).toHaveText("Call us:");
-    await expect(page.locator("//strong[text()='Open today:']")).toHaveText("Open today:");
+    await expect(page.locator("//strong[normalize-space()='Open now:']']")).toHaveText("Open now:");
     await expect(page.locator("(//h2[contains(text(),'Let’s Customize Your Next Home Loan.')])[1]")).toBeVisible();
     await expect(page.locator("(//a[@class='button secondary'][normalize-space()='Get Your Quote'])[1]")).toHaveText("Get Your Quote");
     await expect(page.locator("//h2[normalize-space()='Your Personal Mortgage Lender.']")).toHaveText("Your Personal Mortgage Lender.");

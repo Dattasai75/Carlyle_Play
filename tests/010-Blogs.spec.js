@@ -9,10 +9,10 @@ test.only("verify Blogs page", async({page})=>{
     await expect(page.locator("//h1[normalize-space()='Mortgage Advice & Market Updates']")).toBeVisible();
     await expect(page.locator("//a[normalize-space()='California Home Buying: When is the Right Time?']")).toBeVisible();
     await page.locator("//a[normalize-space()='California Home Buying: When is the Right Time?']").click();
-    await expect(page.url()).toBe('https://preprod.carlylefinancial.com/blog/california-home-buying-right-time/');
+    await expect(page.url()).toBe(`${process.env.BASE_URL_1}/blog/california-home-buying-right-time/`);
     await page.goBack();
     await page.locator("//a[normalize-space()='California Jumbo Loans: What You Need to Know!']").click();
-    await expect(page.url()).toBe("https://preprod.carlylefinancial.com/blog/understanding-jumbo-loans-california/");
+    await expect(page.url()).toBe(`${process.env.BASE_URL_1}/blog/understanding-jumbo-loans-california/`);
     await page.goBack();
     //await expect(page.locator(""));
     await page.locator("//a[normalize-space()='7 Popular Mortgages to Explore When Buying a Home']").click();
@@ -59,6 +59,7 @@ test.only("verify Blogs page", async({page})=>{
     await expect(page.locator("//a[normalize-space()='Carlyle (3)']")).toBeVisible();
     await expect(page.locator("//a[normalize-space()='Carlyle (3)']")).toBeVisible();
     await page.locator("(//*[name()='svg'])[4]").click();
+
     await page.goBack();
     await page.locator("(//*[name()='svg'])[7]").click();
     await page.goBack();

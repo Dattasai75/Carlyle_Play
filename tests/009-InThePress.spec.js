@@ -1,7 +1,7 @@
 import {test, expect} from "@playwright/test";
 import exp from "constants";
 
-test.only("verify In The Press page", async({page})=>{
+test("verify In The Press page", async({page})=>{
     await page.goto(process.env.BASE_URL_1);
     //await expect(page.url()).toBe("https://www.carlylefinancial.com/");
     await page.locator("//li[@id='menu-item-22507']//a[normalize-space()='In The Press']").click();

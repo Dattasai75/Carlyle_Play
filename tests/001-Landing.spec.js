@@ -112,7 +112,6 @@ test("Landing page", async({page})=>{
     // // Refinanceverify the functionality of Loan Comparison button
     // await page.locator("(//a[normalize-space()='Loan Comparison'])[1]").click();
     
-<<<<<<< HEAD
     // // Refinanceverify the functionality of Refinance button
     // await page.locator("(//a[normalize-space()='Refinance'])[1]").click();
     // // await expect(page.locator("")).toHaveText();
@@ -133,8 +132,4 @@ test("Landing page", async({page})=>{
     // await expect(page.locator("")).toHaveText();
     // await expect(page.locator("")).toHaveText();
     // await expect(page.locator("")).toHaveText();
-=======
-    // Refinanceverify the functionality of Refinance button
-    await page.locator("(//a[normalize-space()='Refinance'])[1]").click();
->>>>>>> fc103d5b06938de3711ab1ff5267afbf0a78fa24
 });

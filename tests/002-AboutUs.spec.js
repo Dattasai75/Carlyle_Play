@@ -1,10 +1,6 @@
 import {test, expect} from "@playwright/test";
 
 test("verify the available buttons and functionality of About-Us page", async({page})=>{
-<<<<<<< HEAD
-=======
-    await page.pause();
->>>>>>> fc103d5b06938de3711ab1ff5267afbf0a78fa24
     await page.goto(process.env.BASE_URL_1);
     await page.waitForTimeout(5000);
     //verify the functionality of about us button

@@ -1,10 +1,7 @@
 import {test, expect} from "@playwright/test";
 
-<<<<<<< HEAD
-test("verify the available buttons and functionality of Services page", async({page})=>{
-=======
+
 test("verify the available buttons and functionality of Investment Properties page", async({page})=>{
->>>>>>> fc103d5b06938de3711ab1ff5267afbf0a78fa24
     await page.goto(process.env.BASE_URL_1);
     await page.waitForTimeout(5000);
     await page.locator("//li[@id='menu-item-21044']//a[contains(text(),'Services')]").click();
@@ -39,19 +36,6 @@ test("verify the available buttons and functionality of Investment Properties pa
     //await page.locator("//input[@id='input_11_34']").fill('we@gmail.com');
     //await page.locator("//select[@id='input_11_41']").click();
     //await page.locator("//option[@value='Alpine County']").click();
-<<<<<<< HEAD
-=======
-    ///await expect(page.locator("//b[contains(text(),'Super Jumbo Home Loans – An Overview')]")).toBeVisible();
-    //await expect(page.locator("//b[normalize-space()='Interest Only Jumbo Home Loans']")).toBeVisible();
-    //await expect(page.locator("//b[normalize-space()='What is a Jumbo Loan?']")).toBeVisible();
-    //await expect(page.locator("h2[id='do-you-need-a-jumbo-mortgage'] strong")).toBeVisible();
-   // await expect(page.locator("h2[id='what-do-you-do-next'] strong")).toBeVisible();
-   // await page.locator("//a[contains(text(),'get in touch with one of our mortgage experts toda')]").click();
-    //await expect(page.Url("https://preprod.carlylefinancial.com/get-started/")).toBe();
-   // await page.goBack();
-    //await expect(page.locator("")).toBeVisible();
-    //await expect(page.locator("")).toBeVisible();
-    //await expect(page.locator("")).toBeVisible();
->>>>>>> fc103d5b06938de3711ab1ff5267afbf0a78fa24
+
 
 });

@@ -11,13 +11,12 @@ test("Buying A home", async({page})=>{
     await expect(page.locator("//h1[normalize-space()='Buying A Home']")).toHaveText("Buying A Home");
     await expect(page.locator("//strong[contains(text(),'The purchase of your perfect home – whether a loft')]")).toHaveText("The purchase of your perfect home – whether a loft in SoMa or a beachside bungalow in Venice – is an important decision in your life.");
     await expect(page.locator("//strong[normalize-space()='We never lose sight of that.']")).toHaveText("We never lose sight of that.");
-    await expect(page.locator("//h3[normalize-space()='Choosing Your First Home.']").toHaveText("Choosing Your First Home."));
+    await expect(page.locator("//h3[normalize-space()='Choosing Your First Home.']")).toHaveText("Choosing Your First Home.");
     await expect(page.locator("//h3[normalize-space()='Expanding Your Lifestyle.']")).toHaveText("Expanding Your Lifestyle.");
     await expect(page.locator("//h3[normalize-space()='Adding A Second Home or Vacation Property.']")).toHaveText("Adding A Second Home or Vacation Property.");
     await expect(page.locator("//h3[normalize-space()='Investment Property.']")).toHaveText("Investment Property.");
     await expect(page.locator("//h3[normalize-space()='Living a Golden Retirement.']")).toHaveText("Living a Golden Retirement.");
     await page.locator("//a[normalize-space()='your residential or commercial investment.']").click();
-    await expect(page.url()).toBe("//a[normalize-space()='your residential or commercial investment.']");
+    await expect(page.url()).toBe(`${process.env.BASE_URL_1}/mortgage-solutions/investment-properties/`);
     await page.goBack();
-
-})
+});

@@ -1,6 +1,10 @@
 import {test, expect} from "@playwright/test";
 
 test("verify the available buttons and functionality of About-Us page", async({page})=>{
+<<<<<<< HEAD
+=======
+    await page.pause();
+>>>>>>> fc103d5b06938de3711ab1ff5267afbf0a78fa24
     await page.goto(process.env.BASE_URL_1);
     await page.waitForTimeout(5000);
     //verify the functionality of about us button
@@ -90,11 +94,6 @@ test("verify the available buttons and functionality of About-Us page", async({p
     await expect(page.url()).toBe(`${process.env.BASE_URL_1}/community-outreach/`);
     await expect(page.locator("//h1[@class='entry-title']")).toHaveText("Community Outreach");
     await page.goBack(); 
-    //await expect(page.locator("")).toHaveText();
-    //await expect(page.locator("")).toHaveText();
-    //await expect(page.locator("")).toHaveText();
-    //await expect(page.locator("")).toHaveText();
-    //await expect(page.locator("")).toHaveText();
   // Unable to Automate the contact form page, because it has CAPTCHA.
 
     // await page.locator("(//a[@href='#cf-modal--all'])[1]").click();

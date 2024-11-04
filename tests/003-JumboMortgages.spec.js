@@ -6,7 +6,14 @@ import { openAsBlob } from "fs";
 test("verify Jumbo Mortgages page", async({page})=>{
     await page.goto(process.env.BASE_URL_1);
     await page.waitForTimeout(5000);
+<<<<<<< HEAD
     await page.locator("//li[@id='menu-item-21044']//a[contains(text(),'Services')]").hover();
+=======
+    //await expect(page.url()).toBe("https://www.carlylefinancial.com/");
+    await page.locator("//li[@id='menu-item-21044']//a[contains(text(),'Services')]").click();
+    //await expect(page.locator("ul>li")).toContainText(['Jumbo Mortgages', 'Buying A Home', 'Mortgage Refinance', 'Investment Properties']);
+    //await expect(page.locator("ul>li")).toContainText(['Our Calculators', 'Amortization', 'Mortgage', 'Loan Comparison', 'Refinance']);
+>>>>>>> fc103d5b06938de3711ab1ff5267afbf0a78fa24
     await page.locator("//li[@id='menu-item-2560']//a[normalize-space()='Jumbo Mortgages']").click();
     await expect(page.url()).toBe(`${process.env.BASE_URL_1}/mortgage-solutions/jumbo-mortgages/`);
     await expect(page.locator("//h1[normalize-space()='Jumbo Mortgages']")).toHaveText("Jumbo Mortgages");

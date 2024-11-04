@@ -17,6 +17,12 @@ test("Buying A home", async({page})=>{
     await expect(page.locator("//h3[normalize-space()='Investment Property.']")).toHaveText("Investment Property.");
     await expect(page.locator("//h3[normalize-space()='Living a Golden Retirement.']")).toHaveText("Living a Golden Retirement.");
     await page.locator("//a[normalize-space()='your residential or commercial investment.']").click();
+<<<<<<< HEAD
     await expect(page.url()).toBe(`${process.env.BASE_URL_1}/mortgage-solutions/investment-properties/`);
+=======
+    //url to be
+    await expect(page.url()).toBe(`${process.env.BASE_URL_1}/mortgage-solutions/investment-properties/`);
+
+>>>>>>> fc103d5b06938de3711ab1ff5267afbf0a78fa24
     await page.goBack();
 });

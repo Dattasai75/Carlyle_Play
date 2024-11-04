@@ -2,7 +2,7 @@ import {test, expect} from "@playwright/test";
 import { executionAsyncId } from "async_hooks";
 import exp from "constants";
 
-test.only("verify Blogs page", async({page})=>{
+test("verify Blogs page", async({page})=>{
     await page.goto(process.env.BASE_URL_1);
     await page.waitForTimeout(5000);
     await expect(page.locator("//li[@id='menu-item-21044']//a[contains(text(),'Services')]")).click();

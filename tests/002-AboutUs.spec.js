@@ -91,11 +91,6 @@ test("verify the available buttons and functionality of About-Us page", async({p
     await expect(page.url()).toBe(`${process.env.BASE_URL_1}/community-outreach/`);
     await expect(page.locator("//h1[@class='entry-title']")).toHaveText("Community Outreach");
     await page.goBack(); 
-    //await expect(page.locator("")).toHaveText();
-    //await expect(page.locator("")).toHaveText();
-    //await expect(page.locator("")).toHaveText();
-    //await expect(page.locator("")).toHaveText();
-    //await expect(page.locator("")).toHaveText();
   // Unable to Automate the contact form page, because it has CAPTCHA.
 
     // await page.locator("(//a[@href='#cf-modal--all'])[1]").click();

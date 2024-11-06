@@ -58,27 +58,9 @@ test("Landing page", async({page})=>{
     //check
 
     await expect(page.locator("(//p[normalize-space()='© 2024 Carlyle Financial'])[1]")).toBeVisible();
-    // //verify the functionality of Services section
-    // await page.locator("//li[@id='menu-item-21044']//a[contains(text(),'Services')]").click();
-    // await expect(page.locator("ul>li")).toContainText(['Jumbo Mortgages', 'Buying A Home', 'Mortgage Refinance', 'Investment Properties']);
-    // await expect(page.locator("ul>li")).toContainText(['Our Calculators', 'Amortization', 'Mortgage', 'Loan Comparison', 'Refinance']);
     
-    // // Refinanceverify the functionality of Jumbo Mortagages button
-    // await page.locator("(//a[normalize-space()='Jumbo Mortgages'])[1]").click();
-    // await page.waitForTimeout(5000);
-    // await expect(page.url()).toBe(`${process.env.BASE_URL_1}/mortgage-solutions/jumbo-mortgages/`);
-    // await expect(page.locator("//h3[normalize-space()='Experience the Service You Deserve']")).toBeVisible();
     
-    // // Refinanceverify the functionality of Buying A Home button
-    // await page.locator("//li[@id='menu-item-21044']//a[contains(text(),'Services')]").hover();
-    // await page.locator("(//a[normalize-space()='Buying A Home'])[1]").click();
-    // await expect(page.locator("(//h3[normalize-space()='Choosing Your First Home.'])[1]")).toHaveText("Choosing Your First Home.");
-    // await expect(page.locator("(//h3[normalize-space()='Expanding Your Lifestyle.'])[1]")).toHaveText("Expanding Your Lifestyle.");
     
-    // // Refinanceverify the functionality of Mortgage Refinance button
-    // await page.locator("//li[@id='menu-item-21044']//a[contains(text(),'Services')]").click();
-    // await page.locator("(//a[normalize-space()='Mortgage Refinance'])[1]").click();
-    // await expect(page.locator("(//h3[normalize-space()='Lower Monthly Payments.'])[1]")).toHaveText("Lower Monthly Payments.");
     
     // // Refinanceverify the functionality of Investment Properties button
     // await page.locator("//li[@id='menu-item-21044']//a[contains(text(),'Services')]").click();
@@ -106,30 +88,5 @@ test("Landing page", async({page})=>{
     // // Refinanceverify the functionality of Amortization button
     // await page.locator("(//a[normalize-space()='Amortization'])[1]").click();
     
-    // // Refinanceverify the functionality of Mortgage button
-    // await page.locator("(//a[normalize-space()='Mortgage'])[1]").click();
     
-    // // Refinanceverify the functionality of Loan Comparison button
-    // await page.locator("(//a[normalize-space()='Loan Comparison'])[1]").click();
-    
-    // // Refinanceverify the functionality of Refinance button
-    // await page.locator("(//a[normalize-space()='Refinance'])[1]").click();
-    // // await expect(page.locator("")).toHaveText();
-    // await expect(page.locator("")).toHaveText();
-    // await expect(page.locator("")).toHaveText();
-    // await expect(page.locator("")).toHaveText();
-    // await expect(page.locator("")).toHaveText();
-    // await expect(page.locator("")).toHaveText();
-    // await expect(page.locator("")).toHaveText();
-    // await expect(page.locator("")).toHaveText();
-    // await expect(page.locator("")).toHaveText();
-    // await expect(page.locator("")).toHaveText();
-    // await expect(page.locator("")).toHaveText();
-    // await expect(page.locator("")).toHaveText();
-    // await expect(page.locator("")).toHaveText();
-    // await expect(page.locator("")).toHaveText();
-    // await expect(page.locator("")).toHaveText();
-    // await expect(page.locator("")).toHaveText();
-    // await expect(page.locator("")).toHaveText();
-    // await expect(page.locator("")).toHaveText();
 });

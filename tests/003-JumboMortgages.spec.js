@@ -13,6 +13,9 @@ test("verify Jumbo Mortgages page", async({page})=>{
     await expect(page.locator("//h3[normalize-space()='Experience the Service You Deserve']")).toBeVisible();
     await expect(page.locator("//h2[normalize-space()='Loan Details']")).toBeVisible();
     await expect(page.locator("//li[@id='field_11_3']")).toBeVisible();
+  
+    // Unable to Automate the contact form page, because it has CAPTCHA.
+
     //await page.locator("//span[normalize-space()='Select']").click();
     //await expect(page.locator("ul>li")).toContainText(['Select','to buy a home','to refinance my current loan balance','to refinance and take cash out','to get a second opinion(I have a loan elsewhere)','to discuss something non-mortgage related']);
     //await page.locator("//li[normalize-space()='to buy a home']").click();
@@ -42,6 +45,9 @@ test("verify Jumbo Mortgages page", async({page})=>{
     await expect(page.locator("//span[text()='No Obligation']")).toHaveText('No Obligation');
     await expect(page.locator("//span[text()='Secure']")).toHaveText('Secure');
     await expect(page.locator("//span[text()='Expert Advice']")).toHaveText('Expert Advice');
+
+    //Deleted hyper links
+
     //await page.locator("//span[normalize-space()='help employees using RSU income']").click();
     //await expect(page.url()).toBe(`${process.env.BASE_URL_1}/blog/rsu-mortgage-from-use-restricted-stock-units-buy-home/`);
     //await expect(page.locator("//h1[normalize-space()='Do RSUs Count As Income For a Home Loan in 2024?']")).toHaveText("Do RSUs Count As Income For a Home Loan in 2024?");

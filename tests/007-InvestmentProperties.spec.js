@@ -5,14 +5,14 @@ test("verify the available buttons and functionality of Investment Properties pa
     await page.goto(process.env.BASE_URL_1);
     await page.waitForTimeout(5000);
     await page.locator("//li[@id='menu-item-21044']//a[contains(text(),'Services')]").click();
-    await expect(page.locator("ul>li")).toContainText(['Jumbo Mortgages', 'Buying A Home', 'Mortgage Refinance', 'Investment Properties']);
-    await expect(page.locator("ul>li")).toContainText(['Our Calculators', 'Amortization', 'Mortgage', 'Loan Comparison', 'Refinance']);
-    //await page.locator("//li[@id='menu-item-21044']//a[contains(text(),'Services')]").hover();
+    
     await page.locator("(//a[normalize-space()='Investment Properties'])[1]").click();
-   // await expect(page.url()).toBe(`${process.env.BASE_URL_1}/investment-properties/`);
     await page.waitForTimeout(2000);
+    await expect(page.url()).toBe(`${process.env.BASE_URL_1}/mortgage-solutions/investment-properties/`);
     await expect(page.locator("//h1[normalize-space()='Investment Properties']")).toHaveText("Investment Properties");
     await expect(page.locator("//h3[normalize-space()='Experience the Service You Deserve']")).toHaveText("Experience the Service You Deserve");
+    
+    // Unable to Automate the contact form page, because it has CAPTCHA.
     //await expect(page.locator("//h2[normalize-space()='Loan Details']").toHaveText("Loan Details"));
     //await expect(page.locator("//li[@id='field_11_3']")).toBeVisible();
     //await page.locator("//span[normalize-space()='Select']").click();
@@ -36,6 +36,11 @@ test("verify the available buttons and functionality of Investment Properties pa
     //await page.locator("//input[@id='input_11_34']").fill('we@gmail.com');
     //await page.locator("//select[@id='input_11_41']").click();
     //await page.locator("//option[@value='Alpine County']").click();
-
-
+    
+    await expect(page.locator("(//span[contains(text(),'Why Choose Carlyle Financial for Investment Proper')])[1]")).toHaveText("Why Choose Carlyle Financial for Investment Property Lending?");
+    await expect(page.locator("(//span[normalize-space()='Full Range of Lending Products and Services'])[1]")).toHaveText("Full Range of Lending Products and Services");
+    await expect(page.locator("(//span[normalize-space()='Financing Options for Various Property Types'])[1]")).toHaveText("Financing Options for Various Property Types");
+    await expect(page.locator("(//span[contains(text(),'Streamlined Process for Existing Carlyle Financial')])[1]")).toHaveText("Streamlined Process for Existing Carlyle Financial Clients");
+    await expect(page.locator("(//span[contains(text(),'Talk to Your Carlyle Financial Mortgage Banker Tod')])[1]")).toHaveText("Talk to Your Carlyle Financial Mortgage Banker Today");
+    await expect(page.locator("(//span[normalize-space()='Ready to Build Your Investment Portfolio?'])[1]")).toHaveText("Ready to Build Your Investment Portfolio?");
 });

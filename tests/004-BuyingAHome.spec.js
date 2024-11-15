@@ -1,6 +1,6 @@
 import {test,expect} from "@playwright/test";
 
-test.only("Buying A home", async({page})=>{
+test("Buying A home", async({page})=>{
     await page.goto(process.env.BASE_URL_1);
     await page.waitForTimeout(5000);
     await expect(page.locator("//li[@id='menu-item-21044']//a[contains(text(),'Services')]")).toBeVisible();

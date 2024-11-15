@@ -1,7 +1,5 @@
 import {test,expect} from "@playwright/test";
-import { exec } from "child_process";
-import exp from "constants";
-import { openAsBlob } from "fs";
+
 
 test("verify Jumbo Mortgages page", async({page})=>{
     await page.goto(process.env.BASE_URL_1);

@@ -1,4 +1,8 @@
 import {test, expect} from "@playwright/test";
+test.beforeEach(async ({ page }) => {
+    // Runs before each test and signs in each page.
+    await page.goto(process.env.BASE_URL_1);
+  });
 
 test("Landing page", async({page})=>{
     await page.goto(process.env.BASE_URL_1);

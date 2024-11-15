@@ -1,44 +1,62 @@
-// import {test, expect} from "@playwright/test";
-// import { executionAsyncId } from "async_hooks";
-// import exp from "constants";
+import {test, expect} from "@playwright/test";
+import { executionAsyncId } from "async_hooks";
+import exp from "constants";
 
-// test.only("verify Mortage Calculators module", async({page})=>{
-//     await page.goto(process.env.BASE_URL_1);
-//     await page.waitForTimeout(5000);
-//     await page.locator("//li[@id='menu-item-21044']//a[contains(text(),'Services')]").click();
-//     //await expect(page.locator("ul>li")).toContainText(['Jumbo Mortgages', 'Buying A Home', 'Mortgage Refinance', 'Investment Properties']);
-//     //await expect(page.locator("ul>li")).toContainText(['Our Calculators', 'Amortization', 'Mortgage', 'Loan Comparison', 'Refinance']);
-//     await page.locator("(//span[contains(text(),'Mortgage')])[1]").click();
-//     await expect(page.locator("//h1[normalize-space()='Mortgage Calculator']")).toBeVisible();
-//     await expect(page.locator("//label[text()='Purchase Price']")).toBeVisible();
-//     await expect(page.locator("//label[text()='Down Payment']")).toBeVisible();
-//     await expect(page.locator("//label[text()='Term']")).toBeVisible();
-//     await expect(page.locator("//label[text()='Interest Rate']")).toBeVisible();
-//     await expect(page.locator("//label[text()='Property Tax']")).toBeVisible();
-//     await expect(page.locator("//label[text()='PMI']")).toBeVisible();
-//     await expect(page.locator("//label[text()='Property Insurance']")).toBeVisible();
-//     await expect(page.locator("//label[text()='Start Date']")).toBeVisible();
-//     await page.locator("//input[@id='purchase_price']").fill('10000000900');
-//     await page.locator("//input[@id='down_payment']").fill('15432778');
-//     await page.locator("//input[@id='term']").fill('16');
-//     await page.locator("//input[@id='interest_rate']").fill('10');
-//     await page.locator("//input[@id='yearly_tax_payment']").fill('10000000900');
-//     await page.locator("//input[@id='pmi']").fill('0.09');
-//     await page.locator("//input[@id='yearly_insurance_payment']").fill('10000000900');
-//     await page.locator("//input[@id='start_date']").fill('01/11/2024');
-//     await page.locator("//input[@id='calculate-button']").click();
-//     await expect(page.locator("//h2[normalize-space()='Amortization Schedule']")).toBeVisible();
+test("verify Mortage Calculators module", async({page})=>{
+    await page.goto(process.env.BASE_URL_1);
+    await page.waitForTimeout(5000);
+    await page.locator("//li[@id='menu-item-21044']//a[contains(text(),'Services')]").click();
+    await page.locator("(//span[contains(text(),'Mortgage')])[1]").click();
+    await expect(page.url()).toBe(`${process.env.BASE_URL_1}/mortgage-calculators/mortgage-calculator/`);
+    await expect(page.locator("//h1[normalize-space()='Mortgage Calculator']")).toHaveText("Mortgage Calculator");
+    await expect(page.locator('[id="0bb754042581"]').contentFrame().getByText('Purchase Price')).toHaveText("Purchase Price");
+    await expect(page.locator('[id="0bb754042581"]').contentFrame().getByText('Down Payment')).toHaveText("Down Payment");
+    await expect(page.locator('[id="0bb754042581"]').contentFrame().getByText('Term')).toHaveText("Term");
+    await expect(page.locator('[id="0bb754042581"]').contentFrame().getByText('Interest Rate')).toHaveText("Interest Rate");
+    await expect(page.locator('[id="0bb754042581"]').contentFrame().getByText('Property Tax')).toHaveText("Property Tax");
+    await expect(page.locator('[id="0bb754042581"]').contentFrame().getByText('PMI', { exact: true })).toHaveText("PMI");
+    await expect(page.locator('[id="0bb754042581"]').contentFrame().getByText('Property Insurance')).toHaveText("Property Insurance");
+    await expect(page.locator('[id="0bb754042581"]').contentFrame().getByText('Start Date')).toHaveText("Start Date");
+    await expect(page.locator('[id="0bb754042581"]').contentFrame().getByText('Calculate')).toHaveText("Calculate");
 
+    await expect(page.locator("(//b[normalize-space()='How to Use Our Mortgage Calculator'])[1]")).toHaveText("How to Use Our Mortgage Calculator");
+    await expect(page.locator("(//b[normalize-space()='Understanding Each Input'])[1]")).toHaveText("Understanding Each Input");
+    await expect(page.locator("ol>li")).toContainText(['Purchase Price ($)', 'Down Payment ($)', 'Loan Term (Years)', 'Interest Rate (%)', 'Property Tax ($/Year)', 'PMI (Private Mortgage Insurance) Rate (%)', 'Property Insurance ($/Year)', 'Start Date']);
+    await expect(page.locator("//b[contains(text(),'Example Calculation: What to Expect in Your Monthl')]")).toHaveText("Example Calculation: What to Expect in Your Monthly Payment");
+    await expect(page.locator("ul>li")).toContainText(['Principal & Interest', 'Property Tax', 'PMI', 'Home Insurance']);
+    await expect(page.locator("//b[normalize-space()='Why These Factors Matter']")).toHaveText("Why These Factors Matter");
+    await expect(page.locator("(//b[normalize-space()='How Loan Term Impacts Payment'])[1]")).toHaveText("How Loan Term Impacts Payment");
+    await expect(page.locator("(//b[normalize-space()='The Role of Interest Rate in Monthly Payments'])[1]")).toHaveText("The Role of Interest Rate in Monthly Payments");
+    await expect(page.locator("(//b[contains(text(),'Property Taxes and Insurance: Protecting Your Inve')])[1]")).toHaveText("Property Taxes and Insurance: Protecting Your Investment");
+    await expect(page.locator("(//b[normalize-space()='Key Tips to Lower Monthly Payments'])[1]")).toHaveText("Key Tips to Lower Monthly Payments");
+    await expect(page.locator("ol>li")).toContainText(['Increase Your Down Payment', 'Shop for Competitive Interest Rates', 'Consider a Shorter Loan Term', 'Research Property Tax Rates']);
+    await expect(page.locator("(//b[normalize-space()='Ready to Calculate? Try Our Tool Now!'])[1]")).toHaveText("Ready to Calculate? Try Our Tool Now!");
+    await expect(page.locator("(//b[normalize-space()='Frequently Asked Questions (FAQs)'])[1]")).toHaveText("Frequently Asked Questions (FAQs)");
+    await expect(page.locator("ol>li")).toContainText(["Why Does My Monthly Payment Include Property Tax and Insurance?", "Can I Eliminate PMI?", "How Does Refinancing Impact My Monthly Payment?"]);
+    await expect(page.locator("(//b[normalize-space()='Next Steps'])[1]")).toHaveText("Next Steps");
+    await page.locator("//a[text()='connect with our experienced advisors']").click();
+    await page.waitForTimeout(5000);
+    await expect(page.url()).toBe(`${process.env.BASE_URL_1}/contact-us/`);
+    await expect(page.locator("//h3[normalize-space()='San Francisco Office']")).toHaveText('San Francisco Office');
+    await expect(page.locator("//h3[normalize-space()='Beverly Hills Office']")).toHaveText('Beverly Hills Office');
+    await expect(page.locator("//h1[@id='contact-us']")).toBeVisible();
 
-
-
-
-
-
-
-
-
-
-
-
-// })
+    // await expect(page.locator("//label[text()='Purchase Price']")).toHaveText("Purchase Price");
+    // await expect(page.locator("//label[text()='Down Payment']")).toBeVisible();
+    // await expect(page.locator("//label[text()='Term']")).toBeVisible();
+    // await expect(page.locator("//label[text()='Interest Rate']")).toBeVisible();
+    // await expect(page.locator("//label[text()='Property Tax']")).toBeVisible();
+    // await expect(page.locator("//label[text()='PMI']")).toBeVisible();
+    // await expect(page.locator("//label[text()='Property Insurance']")).toBeVisible();
+    // await expect(page.locator("//label[text()='Start Date']")).toBeVisible();
+    // await page.locator("//input[@id='purchase_price']").fill('10000000900');
+    // await page.locator("//input[@id='down_payment']").fill('15432778');
+    // await page.locator("//input[@id='term']").fill('16');
+    // await page.locator("//input[@id='interest_rate']").fill('10');
+    // await page.locator("//input[@id='yearly_tax_payment']").fill('10000000900');
+    // await page.locator("//input[@id='pmi']").fill('0.09');
+    // await page.locator("//input[@id='yearly_insurance_payment']").fill('10000000900');
+    // await page.locator("//input[@id='start_date']").fill('01/11/2024');
+    // await page.locator("//input[@id='calculate-button']").click();
+    // await expect(page.locator("//h2[normalize-space()='Amortization Schedule']")).toBeVisible();
+});

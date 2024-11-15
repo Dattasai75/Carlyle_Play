@@ -3,12 +3,13 @@ import exp from "constants";
 
 test("verify the available buttons and functionality of Branch Locations page", async({page})=>{
     await page.goto(process.env.BASE_URL_1);
+    //await page.pause();
     //await expect(page.url()).toBe("https://www.carlylefinancial.com/");
     await page.locator("//a[@href='/contact-us/'][normalize-space()='Branch Locations']").hover();
     await expect(page.locator("(//div[@class='cf-box--location__copy']//div[text()='One Market Plaza'])[1]")).toHaveText("One Market Plaza");
     await expect(page.locator("//li[@id='menu-item-21047']//div[contains(text(),'Los Angeles')]")).toHaveText("Los Angeles");
     await page.locator("//a[@href='/contact-us/'][normalize-space()='Branch Locations']").click();
-    await page.waitForTimeout(10000);
+    await page.waitForTimeout(5000);
     await expect(page.url()).toBe(`${process.env.BASE_URL_1}/contact-us/`);
     await expect(page.locator("//h3[normalize-space()='San Francisco Office']")).toHaveText('San Francisco Office');
     await expect(page.locator("//h3[normalize-space()='Beverly Hills Office']")).toHaveText('Beverly Hills Office');

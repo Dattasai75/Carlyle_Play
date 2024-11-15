@@ -3,9 +3,10 @@ import exp from "constants";
 
 test("verify In The Press page", async({page})=>{
     await page.goto(process.env.BASE_URL_1);
+    //await page.pause();
     //await expect(page.url()).toBe("https://www.carlylefinancial.com/");
     await page.locator("//li[@id='menu-item-22507']//a[normalize-space()='In The Press']").click();
-    await page.waitForTimeout(10000);
+    await page.waitForTimeout(3000);
     //await expect(page.url()).toBe("https://preprod.carlylefinancial.com/press/");
     await expect(page.locator("//h1[text()='In The Press']")).toHaveText("In The Press");
     await expect(page.locator("//a[contains(text(),'“What Beyoncé and These Billionaires Have in Commo')]")).toBeVisible();
